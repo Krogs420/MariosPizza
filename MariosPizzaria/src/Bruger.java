@@ -3,21 +3,9 @@ import java.util.Scanner;
 
 public class Bruger {
     Scanner input = new Scanner(System.in);
-    public void callerOrWalker(){
-        System.out.println("Are the customer ringing in or walking in?: ");
-        input.nextInt();
-        if (input.nextInt()==1){
-            //customerRingingIn
-            System.out.println("What are your name?");
-            String name = input.next();
-            chooseOrder();
-        } else if (input.nextInt()==2) {
-           chooseOrder();
-        }
-    }
     public void chooseOrder(){
         // dette er bare en midlertidig menu, skal lige se hvad Jeppe og Kristian har lavet før den kan færdiggøres.
-        String [] menuItems = new String[4];
+        String [] menuItems = new String[6];
         menuItems[0] = "1. Show menu"; // hvis Alphonso er dement
         menuItems[1] = "2. Create order";
         menuItems[2] = "3. Display order";
@@ -35,26 +23,50 @@ public class Bruger {
             valid = true;
             switch (choice){
                 case 1:
-                    System.out.println();
-                    //
+                    //System.out.println(menu);
+
                     break;
                 case 2:
+                    System.out.println("Are the customer ringing in or walking in?: ");
+                    input.nextInt();
+                    if (input.nextInt()==1){
+                        //customerRingingIn
+                        System.out.println("What are your name?");
+                        String name = input.next();
+                        chooseOrder();
+                    } else if (input.nextInt()==2) {
+                        chooseOrder();
+                    }
                     System.out.println("Choose order");
                     input.nextInt();
-                    //
+                    //Order order = new Order(input.nextInt());
+                    //order.add(order);
                     break;
                 case 3:
-                    //skal vise sammenlagt hvad det er blevet, men ikke sende den til Mario, så kunden kan vurdere
-                    // om hvorvidt de har købt for meget eller om de skal have mere
+                    //boolean ans = order.isEmpty();
+                    //if (ans == true)
+                    // sout("You don't have any orders);
+                    //else
+                    //sout(order);
                     break;
                 case 4:
-                    //remove(input)
+                    //boolean ans= order.isEmpty();
+                    //if (ans == true)
+                    // sout("You don't have any orders)
+                    //else
+                    //sout("Which order do you want to remove?")
+                    //if (order.equals(input)){
+                    //order.remove(input);
+                    //}
+                    break;
                 case 5:
                     //statistik, hvis vi får tid.
                 case 9:
                     System.out.println("Bye");
                     break;
-
+                default:
+                    valid = false;
+                    System.out.println("Your choice is not valid.");
             }
         }while (!valid||!(choice==9));
 
