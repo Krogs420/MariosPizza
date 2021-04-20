@@ -57,5 +57,7 @@ public class Bruger {
 
             }
         }while (!valid||!(choice==9));
+
+
     }
 }
