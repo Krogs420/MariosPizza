@@ -7,34 +7,36 @@ public class KasseApparat {
   private int pris;*/
   private int antal;
   private final LocalDateTime salgsTidspunkt = LocalDateTime.now();
-  private ArrayList<Ordrer> ordrer = new ArrayList<>();
+  private ArrayList<Pizza> pizzaListe = new ArrayList<>();
+
+  Pizza pizza = new Pizza(1, 50, "Hawaii", "ananas mm.");
   
-  public ArrayList<Ordrer> getOrdrer() {
-    return ordrer;
-  }
+  /*public ArrayList<Pizza> getPizza() {
+    return pizzaListe;
+  }*/
   
-  public void lavPizza(int antal, Ordrer ordrer) {
-    Ordrer ordrer = new Ordrer(antal, ordrer);
-    ordrer.add(ordrer);
+  public void lavPizza(int nummer, int pris, String navn, String ingredienser) {
+    Pizza pizza = new Pizza(nummer, pris, navn, ingredienser);
+    pizzaListe.add(pizza);
   }
 
-  public int subTotal() { //skal ind i Ordrer at ligge + have pris-attribut + getter til pris-attribut
-    int subTotal = ordrer.getPris() * antal;
+  public int subTotal() {
+    int subTotal = pizza.getPris() * antal;
     return subTotal();
   }
   
   public int totalPris() {
     int total = 0;
-    for (int i = 0; i < ordrer.size(); i++) {
-      total += ordrer.get(i).subTotal();
+    for (int i = 0; i < pizzaListe.size(); i++) {
+      total += subTotal();
     }
     return total;
   }
 
   public void udskrivKvittering() {
     System.out.println(salgsTidspunkt);
-    for (int i = 0; i < ordrer.size(); i++) {
-      System.out.println(ordrer.get(i));
+    for (int i = 0; i < pizzaListe.size(); i++) {
+      System.out.println(pizzaListe.get(i));
 
     }
   }
@@ -44,6 +46,6 @@ public class KasseApparat {
     return "Kvittering\n" +
         "Antal pizzaer: " + antal +
         "\nSalgstidspunkt: " + salgsTidspunkt +
-        ", solgtePizzaer=" + ordrer;
+        ", solgtePizzaer=" + pizzaListe;
   }
 }
