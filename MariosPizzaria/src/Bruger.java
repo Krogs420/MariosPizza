@@ -14,14 +14,14 @@ public class Bruger {
         menuItems[5] = "9. Close program";
         // Menu myMenu = new Menu("Menu","Choose option:", menuItems);
         // ArrayList<Menu> menus = new ArrayList<>();
-
+ /*
         int choice;
         boolean valid;
         do {
             //print menuen
             //choice = menu.readChoice();
             valid = true;
-            switch (choice){
+           switch (choice){
                 case 1:
                     //System.out.println(menu);
 
@@ -69,7 +69,7 @@ public class Bruger {
                     System.out.println("Your choice is not valid.");
             }
         }while (!valid||!(choice==9));
-
+*/
 
     }
 }

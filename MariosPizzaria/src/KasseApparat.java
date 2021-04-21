@@ -3,17 +3,21 @@ import java.util.ArrayList;
 
 public class KasseApparat {
 
-  /*private String navn;
-  private int pris;*/
+  private String navn;
+  private int pris;
   private int antal;
   private final LocalDateTime salgsTidspunkt = LocalDateTime.now();
   private ArrayList<Pizza> pizzaListe = new ArrayList<>();
 
   Pizza pizza = new Pizza(1, 50, "Hawaii", "ananas mm.");
-  
-  /*public ArrayList<Pizza> getPizza() {
+
+  public ArrayList<Pizza> getPizzaListe() {
     return pizzaListe;
-  }*/
+  }
+
+  public ArrayList<Pizza> getPizza() {
+    return pizzaListe;
+  }
   
   public void lavPizza(int nummer, int pris, String navn, String ingredienser) {
     Pizza pizza = new Pizza(nummer, pris, navn, ingredienser);

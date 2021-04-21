@@ -45,9 +45,8 @@ public class Menu {
 
                 case 1:
                     System.out.println("Du har valgt: \n" + pizza1);
-                    //kasse.getOrdrer().add(pizza1);
-                    //return pizza1.getPris();
-                    //break;
+                    kasse.getPizzaListe().add(pizza1);
+                    break;
 
 
                 case 2:
@@ -64,6 +63,7 @@ public class Menu {
                     break;
 
             }
+            System.out.println(kasse.getPizzaListe());
         }
         return 0;
     }

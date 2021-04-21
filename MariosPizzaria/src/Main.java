@@ -6,5 +6,6 @@ public class Main {
 
         menu.tilføjPizza();
         menu.udskrivMenu();
+        menu.pizzaValg();
     }
 }
