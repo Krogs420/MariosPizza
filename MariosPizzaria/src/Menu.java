@@ -79,12 +79,12 @@ public class Menu {
         menuKort.add(pizza30);
     }
 
-    public void pizzaValg() {
-
+    public ArrayList<Pizza> pizzaValg() {
+        ArrayList<Pizza> valgtePizzaer = new ArrayList<>();
         Scanner scan = new Scanner(System.in);
         boolean run = true;
 
-        while(run == true) {
+        while (run == true) {
             System.out.println("\nAlfonso indtaster ordre her: ");
             int valg = scan.nextInt();
             scan.nextLine(); //Scanner bug
@@ -92,155 +92,184 @@ public class Menu {
             switch (valg) {
 
 
-
                 case 1:
                     System.out.println("Du har valgt: \n" + pizza1);
                     kasse.getPizzaListe().add(pizza1);
+                    valgtePizzaer.add(pizza1);
                     break;
 
                 case 2:
                     System.out.println("Du har valgt: \n" + pizza2);
                     kasse.getPizzaListe().add(pizza2);
+                    valgtePizzaer.add(pizza2);
                     break;
 
                 case 3:
                     System.out.println("Du har valgt: \n" + pizza3);
                     kasse.getPizzaListe().add(pizza3);
+                    valgtePizzaer.add(pizza3);
                     break;
 
                 case 4:
                     System.out.println("Du har valgt: \n" + pizza4);
                     kasse.getPizzaListe().add(pizza4);
+                    valgtePizzaer.add(pizza4);
                     break;
 
                 case 5:
                     System.out.println("Du har valgt: \n" + pizza5);
                     kasse.getPizzaListe().add(pizza5);
+                    valgtePizzaer.add(pizza5);
                     break;
 
                 case 6:
                     System.out.println("Du har valgt: \n" + pizza6);
                     kasse.getPizzaListe().add(pizza6);
+                    valgtePizzaer.add(pizza6);
                     break;
 
                 case 7:
                     System.out.println("Du har valgt: \n" + pizza7);
                     kasse.getPizzaListe().add(pizza7);
+                    valgtePizzaer.add(pizza7);
                     break;
 
                 case 8:
                     System.out.println("Du har valgt: \n" + pizza8);
                     kasse.getPizzaListe().add(pizza8);
+                    valgtePizzaer.add(pizza8);
                     break;
 
                 case 9:
                     System.out.println("Du har valgt: \n" + pizza9);
                     kasse.getPizzaListe().add(pizza9);
+                    valgtePizzaer.add(pizza9);
                     break;
 
                 case 10:
                     System.out.println("Du har valgt: \n" + pizza10);
                     kasse.getPizzaListe().add(pizza10);
+                    valgtePizzaer.add(pizza10);
                     break;
 
                 case 11:
                     System.out.println("Du har valgt: \n" + pizza11);
                     kasse.getPizzaListe().add(pizza11);
+                    valgtePizzaer.add(pizza11);
                     break;
 
                 case 12:
                     System.out.println("Du har valgt: \n" + pizza12);
                     kasse.getPizzaListe().add(pizza12);
+                    valgtePizzaer.add(pizza12);
                     break;
 
                 case 13:
                     System.out.println("Du har valgt: \n" + pizza13);
                     kasse.getPizzaListe().add(pizza13);
+                    valgtePizzaer.add(pizza13);
                     break;
 
                 case 14:
                     System.out.println("Du har valgt: \n" + pizza14);
                     kasse.getPizzaListe().add(pizza14);
+                    valgtePizzaer.add(pizza14);
                     break;
 
                 case 15:
                     System.out.println("Du har valgt: \n" + pizza15);
                     kasse.getPizzaListe().add(pizza15);
+                    valgtePizzaer.add(pizza15);
                     break;
 
                 case 16:
                     System.out.println("Du har valgt: \n" + pizza16);
                     kasse.getPizzaListe().add(pizza16);
+                    valgtePizzaer.add(pizza16);
                     break;
 
                 case 17:
                     System.out.println("Du har valgt: \n" + pizza17);
                     kasse.getPizzaListe().add(pizza17);
+                    valgtePizzaer.add(pizza17);
                     break;
 
                 case 18:
                     System.out.println("Du har valgt: \n" + pizza18);
                     kasse.getPizzaListe().add(pizza18);
+                    valgtePizzaer.add(pizza18);
                     break;
 
                 case 19:
                     System.out.println("Du har valgt: \n" + pizza19);
                     kasse.getPizzaListe().add(pizza19);
+                    valgtePizzaer.add(pizza19);
                     break;
 
                 case 20:
                     System.out.println("Du har valgt: \n" + pizza20);
                     kasse.getPizzaListe().add(pizza20);
+                    valgtePizzaer.add(pizza20);
                     break;
 
                 case 21:
                     System.out.println("Du har valgt: \n" + pizza21);
                     kasse.getPizzaListe().add(pizza21);
+                    valgtePizzaer.add(pizza21);
                     break;
 
                 case 22:
                     System.out.println("Du har valgt: \n" + pizza22);
                     kasse.getPizzaListe().add(pizza22);
+                    valgtePizzaer.add(pizza22);
                     break;
 
                 case 23:
                     System.out.println("Du har valgt: \n" + pizza23);
                     kasse.getPizzaListe().add(pizza23);
+                    valgtePizzaer.add(pizza23);
                     break;
 
                 case 24:
                     System.out.println("Du har valgt: \n" + pizza24);
                     kasse.getPizzaListe().add(pizza24);
+                    valgtePizzaer.add(pizza24);
                     break;
 
                 case 25:
                     System.out.println("Du har valgt: \n" + pizza25);
                     kasse.getPizzaListe().add(pizza25);
+                    valgtePizzaer.add(pizza25);
                     break;
 
                 case 26:
                     System.out.println("Du har valgt: \n" + pizza26);
                     kasse.getPizzaListe().add(pizza26);
+                    valgtePizzaer.add(pizza26);
                     break;
 
                 case 27:
                     System.out.println("Du har valgt: \n" + pizza27);
                     kasse.getPizzaListe().add(pizza27);
+                    valgtePizzaer.add(pizza27);
                     break;
 
                 case 28:
                     System.out.println("Du har valgt: \n" + pizza28);
                     kasse.getPizzaListe().add(pizza28);
+                    valgtePizzaer.add(pizza28);
                     break;
 
                 case 29:
                     System.out.println("Du har valgt: \n" + pizza29);
                     kasse.getPizzaListe().add(pizza29);
+                    valgtePizzaer.add(pizza29);
                     break;
 
                 case 30:
                     System.out.println("Du har valgt: \n" + pizza30);
                     kasse.getPizzaListe().add(pizza30);
+                    valgtePizzaer.add(pizza30);
                     break;
 
 
@@ -252,5 +281,6 @@ public class Menu {
             }
             System.out.println(kasse.getPizzaListe()); // Dette er blot en test på, at der blir added til ArrayListen.
         }
+        return valgtePizzaer;
     }
 }
