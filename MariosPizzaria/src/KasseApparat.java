@@ -6,16 +6,13 @@ public class KasseApparat {
   private String navn;
   private int pris;
   private int antal;
+  private int total;
   private final LocalDateTime salgsTidspunkt = LocalDateTime.now();
   private ArrayList<Pizza> pizzaListe = new ArrayList<>();
 
   Pizza pizza = new Pizza(1, 50, "Hawaii", "ananas mm.");
 
   public ArrayList<Pizza> getPizzaListe() {
-    return pizzaListe;
-  }
-
-  public ArrayList<Pizza> getPizza() {
     return pizzaListe;
   }
   
@@ -50,6 +47,8 @@ public class KasseApparat {
     return "Kvittering\n" +
         "Antal pizzaer: " + antal +
         "\nSalgstidspunkt: " + salgsTidspunkt +
-        ", solgtePizzaer=" + pizzaListe;
+        "\nPris: " + total +
+        "\n kr.";
+
   }
 }
