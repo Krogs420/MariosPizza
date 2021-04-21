@@ -4,14 +4,14 @@ import java.util.Scanner;
     public class Ordrer {
         int gaaende= 0;
         int ringende= 0;
-        String name;
+        String navn;
         Scanner input = new Scanner(System.in);
         ArrayList<Ordrer> ordre = new ArrayList<>();
         Menu menu = new Menu();
         KasseApparat kasseApparat = new KasseApparat();
         public Ordrer() {
             this.ringende = ringende;
-            this.name = name;
+            this.navn = navn;
             this.menu = menu;
         }
         // det kan godt være nedestående metode skal over hos kunde + den vil have at den skal return null
@@ -26,8 +26,8 @@ import java.util.Scanner;
                 switch (choice) {
                     case 1:
                         ringende++;
-                        System.out.println("What are your name?");
-                        name = input.nextLine();
+                        System.out.println("Hvad er dit navn?");
+                        navn = input.nextLine();
                         System.out.println("Hvad skal du have at spise?");
                         menu.pizzaValg();
 //                        ordre.add(menu.pizzaValg());
