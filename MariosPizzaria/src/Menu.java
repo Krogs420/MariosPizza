@@ -5,6 +5,8 @@ public class Menu {
 
     ArrayList<Pizza> menuKort = new ArrayList();
 
+    KasseApparat kasse = new KasseApparat();
+
     Pizza pizza1 = new Pizza(1, 57, "Vesuvio", "Tomat, Ost, Origano, Skinke");
     Pizza pizza2 = new Pizza(2, 53, "Amerikaner", "Tomat, Ost, Oksefars, Origano");
     Pizza pizza3 = new Pizza(3, 57, "Cacciatore", "Tomat, Ost, Pepperoni, Origano");
@@ -13,7 +15,7 @@ public class Menu {
 
     public void udskrivMenu() {
 
-
+        System.out.println("Menu:");
         for (int i = 0; i < menuKort.size(); i++) {
             System.out.println(menuKort.get(i));
         }
@@ -30,19 +32,39 @@ public class Menu {
     public int pizzaValg() {
 
         Scanner scan = new Scanner(System.in);
+        boolean run = true;
 
-        System.out.println("Alfonso indtaster ordre her");
-        int valg = scan.nextInt();
-        scan.nextLine(); //Scanner bug
+        while(run == true) {
+            System.out.println("\nAlfonso indtaster ordre her: ");
+            int valg = scan.nextInt();
+            scan.nextLine(); //Scanner bug
 
-        switch (valg) {
+            switch (valg) {
 
-            case 1:
-                System.out.println("Du har valgt: \n" + pizza1);
-                return pizza1.getNummer() + pizza1.getPris(); // Skal ændres til en pizza valg!!!
+
+
+                case 1:
+                    System.out.println("Du har valgt: \n" + pizza1);
+                    //kasse.getOrdrer().add(pizza1);
+                    //return pizza1.getPris();
+                    //break;
+
+
+                case 2:
+                    System.out.println("Du har valgt: \n" + pizza2);
+                    break;
+
+                case 3:
+                    System.out.println("Du har valgt: \n" + pizza3);
+                    break;
+
+                case 99:
+                    System.out.println("Tak for bestillingen"); // exit program
+                    run = false;
+                    break;
+
+            }
         }
-
-
         return 0;
     }
 }
