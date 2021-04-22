@@ -57,7 +57,7 @@ public class KasseApparat {
         "\nSalgstidspunkt: " + salgsTidspunkt;
   }
 
-  public void pizzaValg() {
+  public ArrayList<Pizza> pizzaValg() {
 
     Scanner scan = new Scanner(System.in);
     boolean run = true;
@@ -73,5 +73,6 @@ public class KasseApparat {
 
 
     }
+    return null;
   }
 }

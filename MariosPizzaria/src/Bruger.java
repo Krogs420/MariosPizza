@@ -18,11 +18,10 @@ public class Bruger {
         //Ordrer lavOrdrer = new Ordrer();
         /*
         int choice;
-        boolean valid;
+        boolean valid
+        choice = input.nextInt();
         do {
-            //print menuen
-            //choice = menu.readChoice();
-            valid = true;
+                  valid = true;
            switch (choice){
                 case 1:
                     menu.udskrivMenu();
