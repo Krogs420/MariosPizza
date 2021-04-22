@@ -12,15 +12,15 @@ public class Bruger {
         menuItems[3] = "4. Slet order";
         menuItems[4] = "5. Vis statistik";
         menuItems[5] = "9. Luk programmet";
-        // Menu myMenu = new Menu("Menu","Choose option:", menuItems);
-        // ArrayList<Menu> menus = new ArrayList<>();
+        MySwitchMenu mySwitchMenu = new MySwitchMenu("Menu","Vælg et punkt: ", menuItems);
         Menu menu = new Menu();
         //Ordrer lavOrdrer = new Ordrer();
         /*
         int choice;
-        boolean valid
-        choice = input.nextInt();
+        boolean valid;
         do {
+         choice = input.nextInt();
+         choice = mySwitchMenu.readChoice();
                   valid = true;
            switch (choice){
                 case 1:
