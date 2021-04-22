@@ -7,5 +7,6 @@ public class Main {
 
         kasseApparat.init();
         kasseApparat.pizzaValg();
+        System.out.println(kasseApparat);
     }
 }

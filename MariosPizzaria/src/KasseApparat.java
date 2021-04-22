@@ -9,7 +9,6 @@ public class KasseApparat {
   private int pris;
   private int antal;
   private int subTotal;
-  private int total;
   private final LocalDateTime salgsTidspunkt = LocalDateTime.now();
   private ArrayList<Pizza> pizzaListe = new ArrayList<>();
 
@@ -36,9 +35,12 @@ public class KasseApparat {
   public int totalPris() {
     int subTotal = 0;
     for (int i = 0; i < pizzaListe.size(); i++) {
-      subTotal += pizzaListe.get(i).getPris();
+      subTotal += pizzaListe.get(i).getPris(); //subtotal = subtotal + getPris
+      System.out.println("Kig her: " + pizzaListe.get(i).getPris());
     }
-    return total;
+    System.out.println(subTotal);
+    //this.subTotal = subTotal;
+    return subTotal;
   }
 
  /* public void udskrivKvittering() {
@@ -52,7 +54,7 @@ public class KasseApparat {
   public String toString() {
     return "Kvittering\n" +
         "Antal pizzaer: " + pizzaListe.size() +
-        "\nPris: " + total +
+        "\nPris: " + subTotal +
         "kr." +
         "\nSalgstidspunkt: " + salgsTidspunkt;
   }
@@ -60,19 +62,21 @@ public class KasseApparat {
   public ArrayList<Pizza> pizzaValg() {
 
     Scanner scan = new Scanner(System.in);
-    boolean run = true;
 
-    while(run == true) {
-      System.out.println("\nAlfonso indtaster ordre her: ");
-      int valg = scan.nextInt();
-      scan.nextLine(); //Scanner bug
+      System.out.println("Hvor mange pizzaer vil du bestille?");
+      int antalPizza = scan.nextInt();
 
-      System.out.println("Du har valgt: \n" + menu.getPizza(valg));
-      Pizza pizza = menu.getPizza(valg);
-      pizzaListe.add(pizza);
+      for (int i = 0; i < antalPizza; i++) {
+        System.out.println("\nAlfonso indtaster ordre her: ");
+        int valg = scan.nextInt();
+        scan.nextLine(); //Scanner bug
 
+        System.out.println("Du har valgt: \n" + menu.getPizza(valg));
+        Pizza pizza = menu.getPizza(valg);
+        pizzaListe.add(pizza);
 
-    }
+      }
+    this.subTotal = totalPris();
     return null;
   }
 }
