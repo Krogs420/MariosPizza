@@ -5,13 +5,11 @@ public class Pizza {
     private String ingredienser;
 
 
-
     public Pizza (int nummer, int pris, String navn, String ingredienser) {
         this.nummer = nummer;
         this.navn = navn;
         this.pris = pris;
         this.ingredienser = ingredienser;
-
     }
 
     // pizza1 = new Pizza()

@@ -1,13 +1,13 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class KasseApparat {
+public class Ordrebehandling {
 
   private Menu menu = new Menu();
-  private String navn;
-  private int pris;
-  private int antal;
   private int subTotal;
   private final LocalDateTime salgsTidspunkt = LocalDateTime.now();
   private ArrayList<Pizza> pizzaListe = new ArrayList<>();
@@ -27,11 +27,6 @@ public class KasseApparat {
     pizzaListe.add(pizza);
   }
 
-  /*public int subTotal() {
-    int subTotal = pizza.getPris() * antal;
-    return subTotal();
-  }*/
-
   public int totalPris() {
     int subTotal = 0;
     for (int i = 0; i < pizzaListe.size(); i++) {
@@ -40,13 +35,6 @@ public class KasseApparat {
     //this.subTotal = subTotal;
     return subTotal;
   }
-
- /* public void udskrivKvittering() {
-    System.out.println(salgsTidspunkt);
-    for (int i = 0; i < pizzaListe.size(); i++) {
-      System.out.println(pizzaListe.get(i));
-    }
-  }*/
 
   @Override
   public String toString() {
@@ -61,20 +49,34 @@ public class KasseApparat {
 
     Scanner scan = new Scanner(System.in);
 
-      System.out.println("Hvor mange pizzaer vil du bestille?");
-      int antalPizza = scan.nextInt();
+    System.out.println("Hvor mange pizzaer vil du bestille?");
+    int antalPizza = scan.nextInt();
+    scan.nextLine(); //scanner bug
+    if (antalPizza != scan.nextInt()) {
+      System.out.println("Indtast gyldigt tal.");
+      pizzaValg();
+    }
 
-      for (int i = 0; i < antalPizza; i++) {
-        System.out.println("\nAlfonso indtaster ordre her: ");
-        int valg = scan.nextInt();
-        scan.nextLine(); //Scanner bug
+    for (int i = 0; i < antalPizza; i++) {
+      System.out.println("\nAlfonso indtaster ordre her: ");
+
+      int valg = scan.nextInt();
+      scan.nextLine(); //Scanner bug
+      if (valg < 1 || valg > 30) {
+        System.out.println("Indtast gyldigt valg, 1-30. Prøv igen: ");
+        scan.nextInt();
+      } else {
 
         System.out.println("Du har valgt: \n" + menu.getPizza(valg));
         Pizza pizza = menu.getPizza(valg);
         pizzaListe.add(pizza);
-
       }
+      }
+
+    //pizzaListe udskrives til fil her
+
     this.subTotal = totalPris();
+    System.out.println(toString());
     return null;
   }
 }

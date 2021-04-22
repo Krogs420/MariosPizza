@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Bruger {
+public class SystemStart {
     Scanner input = new Scanner(System.in);
-    public void chooseOrder(){
-        // dette er bare en midlertidig menu, skal lige se hvad Jeppe og Kristian har lavet før den kan færdiggøres.
+    public void startMenu(){
+
         String [] menuItems = new String[6];
         menuItems[0] = "1. Vis menu";
         menuItems[1] = "2. Lav order";
@@ -12,51 +12,52 @@ public class Bruger {
         menuItems[3] = "4. Slet order";
         menuItems[4] = "5. Vis statistik";
         menuItems[5] = "9. Luk programmet";
-        MySwitchMenu mySwitchMenu = new MySwitchMenu("Menu","Vælg et punkt: ", menuItems);
+
+        BrugerDialog brugerDialog = new BrugerDialog("Menu","Vælg et punkt: ", menuItems);
         Menu menu = new Menu();
-        //Ordrer lavOrdrer = new Ordrer();
-        /*
+        Ordre ordre = new Ordre(1, new ArrayList<>());
+        Ordrebehandling ordrebehandling = new Ordrebehandling();
+
+
+
         int choice;
         boolean valid;
         do {
-         choice = input.nextInt();
-         choice = mySwitchMenu.readChoice();
+         brugerDialog.printMenu();
+
+         choice = brugerDialog.readChoice();
                   valid = true;
            switch (choice){
                 case 1:
                     menu.udskrivMenu();
                     break;
                 case 2:
-                   lavOrdrer.ordre();
+                    ordre.lavOrdre();
                     break;
                 case 3:
-                    boolean ans = lavOrdrer.ordre.isEmpty();
-                    if (ans == true)
-                        System.out.println("Du har ingen ordrer");
+                    boolean svar = ordre.ordreListe.isEmpty();
+                    if (svar == true)
+                        System.out.println("Du har ingen ordrer.");
                     else
-                        System.out.println(lavOrdrer.ordre);
+                        System.out.println("Disse ordrer venter på dig: \n" + ordre.ordreListe);
                     break;
                 case 4:
-                    //boolean ans= order.isEmpty();
-                    //if (ans == true)
-                    // sout("You don't have any orders)
-                    //else
-                    //sout("Which order do you want to remove?")
-                    //if (order.equals(input)){
-                    //order.remove(input);
-                    //}
+                    System.out.println("Hvilke ordre vil du fjerne?"); //skal teste den her metode
+                    if (ordre.ordreListe.equals(input)) {
+                        ordre.ordreListe.remove(input.nextInt());
+                    }
                     break;
                 case 5:
+                    System.out.println("Her putter vi en fil med noget statistik, hvis vi får tid"); //IKKE FÆRDIG
                     //statistik, hvis vi får tid.
                 case 9:
-                    System.out.println("Farvel");
+                    System.out.println("Farvel.");
                     break;
                 default:
                     valid = false;
                     System.out.println("Dit valg er ikke gyldigt, prøv igen.");
             }
         }while (!valid||!(choice==9));
-*/
 
     }
 }

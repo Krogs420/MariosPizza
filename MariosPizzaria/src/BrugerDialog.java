@@ -1,11 +1,11 @@
 import java.util.Scanner;
 
-public class MySwitchMenu {
+public class BrugerDialog {
     private String menuHeader;
     private String leadText;
     private String[] menuItems;
 
-    public MySwitchMenu(String menuHeader, String leadText, String[] menuItems) {
+    public BrugerDialog(String menuHeader, String leadText, String[] menuItems) {
         this.menuHeader = menuHeader;
         this.leadText = leadText;
         this.menuItems = menuItems;

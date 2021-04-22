@@ -2,11 +2,15 @@ public class Main {
 
     public static void main(String[] args) {
 
-        KasseApparat kasseApparat = new KasseApparat();
+        Ordrebehandling ordrebehandling = new Ordrebehandling();
+        SystemStart systemStart = new SystemStart();
+
+        systemStart.startMenu(); //bør være den eneste vi kalder til sidst
 
 
-        kasseApparat.init();
-        kasseApparat.pizzaValg();
-        System.out.println(kasseApparat);
+
+        /*ordrebehandling.init(); //udskriver menuen
+        ordrebehandling.pizzaValg();
+        System.out.println(ordrebehandling);*/
     }
 }
