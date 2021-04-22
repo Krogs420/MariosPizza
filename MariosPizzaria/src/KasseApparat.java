@@ -36,9 +36,7 @@ public class KasseApparat {
     int subTotal = 0;
     for (int i = 0; i < pizzaListe.size(); i++) {
       subTotal += pizzaListe.get(i).getPris(); //subtotal = subtotal + getPris
-      System.out.println("Kig her: " + pizzaListe.get(i).getPris());
     }
-    System.out.println(subTotal);
     //this.subTotal = subTotal;
     return subTotal;
   }
