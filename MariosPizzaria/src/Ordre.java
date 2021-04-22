@@ -20,6 +20,12 @@ public class Ordre {
 
 
         System.out.println("Ringer kunden ind eller kommer kunden ind fra gaden? Tryk 1 for ringende, 2 for gående");
+
+        while (!input.hasNextInt()) {
+            System.out.print("Indtast gyldigt tal (1 eller 2): ");
+            input.nextLine();
+        }
+
         int choice = input.nextInt();
         input.nextLine(); //scanner bug
 

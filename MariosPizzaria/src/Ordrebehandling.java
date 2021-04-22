@@ -50,21 +50,25 @@ public class Ordrebehandling {
     Scanner scan = new Scanner(System.in);
 
     System.out.println("Hvor mange pizzaer vil du bestille?");
-    int antalPizza = scan.nextInt();
-    scan.nextLine(); //scanner bug
-    if (antalPizza != scan.nextInt()) {
-      System.out.println("Indtast gyldigt tal.");
-      pizzaValg();
+    while (!scan.hasNextInt()) {
+      System.out.print("Indtast gyldigt tal: ");
+      scan.nextLine();
     }
+    int antalPizza = scan.nextInt();
+
 
     for (int i = 0; i < antalPizza; i++) {
       System.out.println("\nAlfonso indtaster ordre her: ");
 
-      int valg = scan.nextInt();
-      scan.nextLine(); //Scanner bug
+      while (!scan.hasNextInt()) {
+        System.out.print("Indtast gyldigt valg, 1-30. Prøv igen: "); //udskriver den her 2 gange, hvorfor?
+        scan.nextLine();
+      }
+      int valg = scan.nextInt(); //problem med at tilføje valget her til pizzaListe
+
       if (valg < 1 || valg > 30) {
         System.out.println("Indtast gyldigt valg, 1-30. Prøv igen: ");
-        scan.nextInt();
+        pizzaValg();
       } else {
 
         System.out.println("Du har valgt: \n" + menu.getPizza(valg));
