@@ -15,7 +15,7 @@ public class Bruger {
         // Menu myMenu = new Menu("Menu","Choose option:", menuItems);
         // ArrayList<Menu> menus = new ArrayList<>();
         Menu menu = new Menu();
-        Ordrer lavOrdrer = new Ordrer();
+        //Ordrer lavOrdrer = new Ordrer();
         /*
         int choice;
         boolean valid;

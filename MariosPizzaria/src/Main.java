@@ -2,10 +2,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Menu menu = new Menu();
+        KasseApparat kasseApparat = new KasseApparat();
 
-        menu.tilføjPizza();
-        menu.udskrivMenu();
-        menu.pizzaValg();
+
+        kasseApparat.init();
+        kasseApparat.pizzaValg();
     }
 }
