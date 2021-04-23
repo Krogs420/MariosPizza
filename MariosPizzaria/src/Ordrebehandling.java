@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -12,7 +13,13 @@ public class Ordrebehandling {
   private final LocalDateTime salgsTidspunkt = LocalDateTime.now();
   private ArrayList<Pizza> pizzaListe = new ArrayList<>();
 
-  public void init() {
+  DateTimeFormatter tidsformat = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+   //System.out.println(localDateTime.format(tidsformat));
+
+  // DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd-HH-yyyy HH:mm");
+  //System.out.println(localDateTime.format(fmt));
+
+  public void init() { //vi bruger ikke den her metode, slet den?
     menu.udskrivMenu();
   }
 
@@ -42,16 +49,20 @@ public class Ordrebehandling {
 
   @Override
   public String toString() {
-    return "Kvittering\n" +
+    return "\n" +
+        "--------------------------------" +
+        "\nKvittering\n" +
         "Antal pizzaer: " + pizzaListe.size() +
         "\nPris: " + subTotal +
         "kr." +
-        "\nSalgstidspunkt: " + salgsTidspunkt;
+        "\nSalgstidspunkt: " + salgsTidspunkt.format(tidsformat) +
+        "\n--------------------------------";
   }
 
   public ArrayList<Pizza> pizzaValg() {
 
     Scanner scan = new Scanner(System.in);
+    pizzaListe.clear(); //rydder ArrayListen hver gang en ny kunde bestiller, så pizzaListe kun indeholder én kundes ordre
 
     System.out.println("Hvor mange pizzaer vil du bestille?");
     while (!scan.hasNextInt()) {
@@ -68,9 +79,9 @@ public class Ordrebehandling {
         System.out.print("Indtast gyldigt valg, 1-30. Prøv igen: "); //udskriver den her 2 gange, hvorfor?
         scan.nextLine();
       }
-      int valg = scan.nextInt(); //problem med at tilføje valget her til pizzaListe
+      int valg = scan.nextInt();
 
-      if (valg < 1 || valg > 30) {
+      if (valg < 1 || valg > menu.menuKort.size()) {
         System.out.println("Indtast gyldigt valg, 1-30. Prøv igen: ");
         pizzaValg();
       } else {
