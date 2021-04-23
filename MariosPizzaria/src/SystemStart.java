@@ -45,6 +45,14 @@ public class SystemStart {
                     System.out.println("Hvilke ordre vil du fjerne?"); //skal teste den her metode
                     int sletOrdre = input.nextInt();
                     input.nextLine();
+                    for (int i = 0; i < ordre.ordreListe.size(); i++) {
+                        Ordre ordre1 = ordre.ordreListe.get(i); // gemmer ordren
+                        if(ordre1.ordrerNummer == sletOrdre) {
+
+                        }
+
+                    }
+
                     if(ordre.ordreListe.size() > 0){
                         ordre.ordreListe.remove(sletOrdre - 1);
                     Scanner sc = new Scanner(System.in);
