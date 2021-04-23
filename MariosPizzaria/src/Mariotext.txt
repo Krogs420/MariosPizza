@@ -25,3 +25,42 @@ Råb til Alfonso, når ordren er lavet
 
 
 ======================================================================================================================
+Ordre NR: 1
+
+Hej Mario
+Der er kommet en nye ordre og du skal lave disse pizzaer:
+
+Pizza: Nr. 1, Vesuvio: Tomat, Ost, Origano, Skinke                                       Pris: 57
+
+Ordren blev modtaget: 2021-04-23T13:24:56.535680
+
+Råb til Alfonso, når ordren er lavet
+
+
+======================================================================================================================
+Ordre NR: 1
+
+Hej Mario
+Der er kommet en nye ordre og du skal lave disse pizzaer:
+
+Pizza: Nr. 1, Vesuvio: Tomat, Ost, Origano, Skinke                                       Pris: 57
+
+Ordren blev modtaget: 2021-04-23T13:28:13.451945500
+
+Råb til Alfonso, når ordren er lavet
+
+
+======================================================================================================================
+Ordre NR: 1
+
+Hej Mario
+Der er kommet en nye ordre og du skal lave disse pizzaer:
+
+Pizza: Nr. 1, Vesuvio: Tomat, Ost, Origano, Skinke                                       Pris: 57
+
+Ordren blev modtaget: 2021-04-23T13:28:53.517285900
+
+Råb til Alfonso, når ordren er lavet
+
+
+======================================================================================================================

@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -11,6 +12,12 @@ public class Ordrebehandling {
   private int subTotal;
   private final LocalDateTime salgsTidspunkt = LocalDateTime.now();
   private ArrayList<Pizza> pizzaListe = new ArrayList<>();
+
+  DateTimeFormatter tidsformat = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+   //System.out.println(localDateTime.format(tidsformat));
+
+  // DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd-HH-yyyy HH:mm");
+  //System.out.println(localDateTime.format(fmt));
 
   public void init() { //vi bruger ikke den her metode, slet den?
     menu.udskrivMenu();
@@ -42,11 +49,14 @@ public class Ordrebehandling {
 
   @Override
   public String toString() {
-    return "Kvittering\n" +
+    return "\n" +
+        "--------------------------------" +
+        "\nKvittering\n" +
         "Antal pizzaer: " + pizzaListe.size() +
         "\nPris: " + subTotal +
         "kr." +
-        "\nSalgstidspunkt: " + salgsTidspunkt;
+        "\nSalgstidspunkt: " + salgsTidspunkt.format(tidsformat) +
+        "\n--------------------------------";
   }
 
   public ArrayList<Pizza> pizzaValg() {
@@ -71,7 +81,7 @@ public class Ordrebehandling {
       }
       int valg = scan.nextInt();
 
-      if (valg < menu.menuKort.size() || menu.menuKort.size() > 30) {
+      if (valg < 1 || valg > menu.menuKort.size()) {
         System.out.println("Indtast gyldigt valg, 1-30. Prøv igen: ");
         pizzaValg();
       } else {
