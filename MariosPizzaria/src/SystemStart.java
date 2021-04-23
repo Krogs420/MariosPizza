@@ -20,7 +20,6 @@ public class SystemStart {
         Ordrebehandling ordrebehandling = new Ordrebehandling();
 
 
-
         int choice;
         boolean valid;
         do {
@@ -40,12 +39,20 @@ public class SystemStart {
                     if (svar == true)
                         System.out.println("Du har ingen ordrer.");
                     else
-                        System.out.println("Disse ordrer venter på dig: \n" + ordre.ordreListe);
+                        System.out.println("Disse ordrer venter på dig: \n" + ordre.ordreListe.toString());
                     break;
                 case 4:
                     System.out.println("Hvilke ordre vil du fjerne?"); //skal teste den her metode
-                    if (ordre.ordreListe.equals(input)) {
-                        ordre.ordreListe.remove(input.nextInt());
+                    int sletOrdre = input.nextInt();
+                    input.nextLine();
+                    if(ordre.ordreListe.size() > 0){
+                        ordre.ordreListe.remove(sletOrdre - 1);
+                    Scanner sc = new Scanner(System.in);
+                    if (sletOrdre > ordre.ordreListe.size()){
+                        System.out.println("Ordren eksisterer ikke");
+                    }
+                    } else{
+                        System.out.println("Der er ingen ordre at fjerne");
                     }
                     break;
                 case 5:
