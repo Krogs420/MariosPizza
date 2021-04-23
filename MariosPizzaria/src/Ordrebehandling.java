@@ -70,6 +70,7 @@ public class Ordrebehandling {
       scan.nextLine();
     }
     int antalPizza = scan.nextInt();
+    scan.nextLine();
 
 
     for (int i = 0; i < antalPizza; i++) {

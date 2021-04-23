@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class SystemStart {
     Scanner input = new Scanner(System.in);
+    public static ArrayList<Ordre> ordreListe = new ArrayList<>();
+
     public void startMenu() throws FileNotFoundException {
 
         String [] menuItems = new String[6];
@@ -17,7 +19,8 @@ public class SystemStart {
         BrugerDialog brugerDialog = new BrugerDialog("Menu","Vælg et punkt: ", menuItems);
         Menu menu = new Menu();
         Ordre ordre = new Ordre(1, new ArrayList<>());
-        Ordrebehandling ordrebehandling = new Ordrebehandling();
+        Ordrebehandling ordreBehandling = new Ordrebehandling();
+
 
 
         int choice;
@@ -35,33 +38,30 @@ public class SystemStart {
                     ordre.lavOrdre();
                     break;
                 case 3:
-                    boolean svar = ordre.ordreListe.isEmpty();
+                    boolean svar = ordreListe.isEmpty();
                     if (svar == true)
                         System.out.println("Du har ingen ordrer.");
                     else
-                        System.out.println("Disse ordrer venter på dig: \n" + ordre.ordreListe.toString());
+                        System.out.println("Disse ordrer venter på dig: \n" + ordreListe.toString());
                     break;
                 case 4:
                     System.out.println("Hvilke ordre vil du fjerne?"); //skal teste den her metode
                     int sletOrdre = input.nextInt();
                     input.nextLine();
-                    for (int i = 0; i < ordre.ordreListe.size(); i++) {
-                        Ordre ordre1 = ordre.ordreListe.get(i); // gemmer ordren
+                    boolean ordreFindes = false;
+                    for (int i = 0; i < ordreListe.size(); i++) {
+                        Ordre ordre1 = ordreListe.get(i); // gemmer ordren
                         if(ordre1.ordrerNummer == sletOrdre) {
-
+                          ordreListe.remove(i);
+                          ordreFindes = true;
+                          System.out.println("Ordren er blevet slettet.");
+                          break;
                         }
-
+                    }
+                    if (!ordreFindes) {
+                      System.out.println("Der er ingen ordre at fjerne");
                     }
 
-                    if(ordre.ordreListe.size() > 0){
-                        ordre.ordreListe.remove(sletOrdre - 1);
-                    Scanner sc = new Scanner(System.in);
-                    if (sletOrdre > ordre.ordreListe.size()){
-                        System.out.println("Ordren eksisterer ikke");
-                    }
-                    } else{
-                        System.out.println("Der er ingen ordre at fjerne");
-                    }
                     break;
                 case 5:
                     System.out.println("Her putter vi en fil med noget statistik, hvis vi får tid"); //IKKE FÆRDIG

@@ -1,13 +1,17 @@
 import java.io.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Ordre {
+    static int ordreCount = 0;
+
     int gaaende = 0;
     int ringende = 0;
     int ordrerNummer = 0;
+    private LocalDateTime leveringsTidspunkt;
     Scanner input = new Scanner(System.in);
-    ArrayList<Ordre> ordreListe = new ArrayList<>();
+    //ArrayList<Ordre> ordreListe = new ArrayList<>();
 
     Ordrebehandling ordrebehandling = new Ordrebehandling();
     ArrayList<Pizza> valgtePizzaer = new ArrayList<>();
@@ -22,6 +26,15 @@ public class Ordre {
         this.ordrerNummer = ordrerNummer;
         this.valgtePizzaer = valgtePizzaer;
     }
+    public Ordre(int ordrerNummer, ArrayList<Pizza> valgtePizzaer, boolean gaaende) throws FileNotFoundException {
+        this.ordrerNummer = ordrerNummer;
+        this.valgtePizzaer = valgtePizzaer;
+        if (gaaende = true) {
+            LocalDateTime leveringsTidspunkt1 = LocalDateTime.now(); //kan ikke ændre dato/tid
+            leveringsTidspunkt = leveringsTidspunkt1.plusMinutes(10); //derfor vi lægger 10 til her
+        }
+    }
+
 
     public void lavOrdre() throws FileNotFoundException {
 
@@ -39,14 +52,14 @@ public class Ordre {
         switch (choice) {
             case 1:
                 ringende++;
-                opretOrdre();
+                opretOrdre(true);
                 //myWriter.write(ringende);
                // myWriter.write(ordreListe.toString());
                // mywriter.close();
                 break;
             case 2:
                 gaaende++;
-                opretOrdre();
+                opretOrdre(false);
                // myWriter.write(gaaende);
                 // myWriter.write(ordreListe.toString());
                 //mywriter.close();
@@ -54,18 +67,22 @@ public class Ordre {
             }
     }
 
-    public void opretOrdre() throws FileNotFoundException {
-        ordrerNummer++;
+    public void opretOrdre(boolean ringende) throws FileNotFoundException {
+        ordreCount++;
         ArrayList<Pizza> gaaendePizzaer = ordrebehandling.pizzaValg();
-        Ordre ordre2 = new Ordre(ordrerNummer, gaaendePizzaer);
-        ordreListe.add(ordre2);
+        Ordre ordre = new Ordre(ordreCount, gaaendePizzaer, ringende); //Ordre ordre2 = new Ordre(ordrerNummer, gaaendePizzaer);
+        System.out.println("Ordrenummer: " + ordre.ordrerNummer);
+
+        //ordreListe.add(ordre2);
         OrdreListeMario();
 
+        SystemStart.ordreListe.add(ordre);
     }
-    public void sletOrdre(){
+
+/*    public void sletOrdre(){
         // er lidt i tvivl om det virker
         ordreListe.equals(input.nextInt());
-    }
+    }*/
 
     public void OrdreListeMario() throws FileNotFoundException {
 
