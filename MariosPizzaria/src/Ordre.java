@@ -1,3 +1,4 @@
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -10,6 +11,8 @@ public class Ordre {
 
     Ordrebehandling ordrebehandling = new Ordrebehandling();
     ArrayList<Pizza> valgtePizzaer = new ArrayList<>();
+    // Var det den vi kaldte fil? I så fald ændrer til fil.txt
+    //FileWriter myWriter = new FileWriter("Friendlist.txt");
 
     public Ordre(int ordrerNummer, ArrayList<Pizza> valgtePizzaer) {
         this.ordrerNummer = ordrerNummer;
@@ -33,10 +36,16 @@ public class Ordre {
             case 1:
                 ringende++;
                 opretOrdre();
+                //myWriter.write(ringende);
+               // myWriter.write(ordreListe.toString());
+               // mywriter.close();
                 break;
             case 2:
                 gaaende++;
                 opretOrdre();
+               // myWriter.write(gaaende);
+                // myWriter.write(ordreListe.toString());
+                //mywriter.close();
                 break;
             }
     }
@@ -46,6 +55,10 @@ public class Ordre {
         ArrayList<Pizza> gaaendePizzaer = ordrebehandling.pizzaValg();
         Ordre ordre2 = new Ordre(ordrerNummer, gaaendePizzaer);
         ordreListe.add(ordre2);
+    }
+    public void sletOrdre(){
+        // er lidt i tvivl om det virker
+        ordreListe.equals(input.nextInt());
     }
 }
 
