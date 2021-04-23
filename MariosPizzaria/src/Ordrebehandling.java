@@ -12,7 +12,7 @@ public class Ordrebehandling {
   private final LocalDateTime salgsTidspunkt = LocalDateTime.now();
   private ArrayList<Pizza> pizzaListe = new ArrayList<>();
 
-  public void init() {
+  public void init() { //vi bruger ikke den her metode, slet den?
     menu.udskrivMenu();
   }
 
@@ -71,7 +71,7 @@ public class Ordrebehandling {
       }
       int valg = scan.nextInt();
 
-      if (valg < 1 || valg > 30) {
+      if (valg < menu.menuKort.size() || menu.menuKort.size() > 30) {
         System.out.println("Indtast gyldigt valg, 1-30. Prøv igen: ");
         pizzaValg();
       } else {
