@@ -27,6 +27,10 @@ public class Ordrebehandling {
     pizzaListe.add(pizza);
   }
 
+  public LocalDateTime getSalgsTidspunkt() {
+    return salgsTidspunkt;
+  }
+
   public int totalPris() {
     int subTotal = 0;
     for (int i = 0; i < pizzaListe.size(); i++) {

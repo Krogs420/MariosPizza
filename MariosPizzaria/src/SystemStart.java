@@ -1,9 +1,10 @@
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class SystemStart {
     Scanner input = new Scanner(System.in);
-    public void startMenu(){
+    public void startMenu() throws FileNotFoundException {
 
         String [] menuItems = new String[6];
         menuItems[0] = "1. Vis menu";

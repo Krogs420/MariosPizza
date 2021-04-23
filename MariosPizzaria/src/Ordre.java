@@ -1,4 +1,4 @@
-import java.io.FileWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,12 +14,16 @@ public class Ordre {
     // Var det den vi kaldte fil? I så fald ændrer til fil.txt
     //FileWriter myWriter = new FileWriter("Friendlist.txt");
 
-    public Ordre(int ordrerNummer, ArrayList<Pizza> valgtePizzaer) {
+    File displayOrdreMario = new File("src/Mariotext.txt");
+    PrintStream marioListe = new PrintStream(new FileOutputStream("src/Mariotext.txt", true));
+    ArrayList mariosOrdrer = new ArrayList();
+
+    public Ordre(int ordrerNummer, ArrayList<Pizza> valgtePizzaer) throws FileNotFoundException {
         this.ordrerNummer = ordrerNummer;
         this.valgtePizzaer = valgtePizzaer;
     }
 
-    public void lavOrdre() {
+    public void lavOrdre() throws FileNotFoundException {
 
 
         System.out.println("Ringer kunden ind eller kommer kunden ind fra gaden? Tryk 1 for ringende, 2 for gående");
@@ -50,16 +54,38 @@ public class Ordre {
             }
     }
 
-    public void opretOrdre() {
+    public void opretOrdre() throws FileNotFoundException {
         ordrerNummer++;
         ArrayList<Pizza> gaaendePizzaer = ordrebehandling.pizzaValg();
         Ordre ordre2 = new Ordre(ordrerNummer, gaaendePizzaer);
         ordreListe.add(ordre2);
+        OrdreListeMario();
+
     }
     public void sletOrdre(){
         // er lidt i tvivl om det virker
         ordreListe.equals(input.nextInt());
     }
+
+    public void OrdreListeMario() throws FileNotFoundException {
+
+        marioListe.println("Ordre NR: " + (ordrerNummer -1));
+
+        marioListe.println("\nHej Mario\nDer er kommet en nye ordre og du skal lave disse pizzaer:\n");
+        for (int i = 0; i < ordrebehandling.getPizzaListe().size(); i++) {
+            marioListe.println(ordrebehandling.getPizzaListe().get(i).toString().replace("[", "").replace("]", ""));
+
+        }
+        marioListe.println("\nOrdren blev modtaget: " + ordrebehandling.getSalgsTidspunkt());
+
+        marioListe.println("\nRåb til Alfonso, når ordren er lavet\n\n");
+        marioListe.println("======================================================================================================================");
+
+    }
+
+
+
+
 }
 
 
