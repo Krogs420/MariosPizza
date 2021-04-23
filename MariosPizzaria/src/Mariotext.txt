@@ -3,9 +3,9 @@ Ordre NR: 1
 Hej Mario
 Der er kommet en nye ordre og du skal lave disse pizzaer:
 
-Pizza: Nr. 3, Cacciatore: Tomat, Ost, Pepperoni, Oregano                                 Pris: 57
+Pizza: Nr. 1, Vesuvio: Tomat, Ost, Origano, Skinke                                       Pris: 57
 
-Ordren blev modtaget: 2021-04-23T09:44:53.465596
+Ordren blev modtaget: 2021-04-23T12:40:59.141626400
 
 Råb til Alfonso, når ordren er lavet
 
@@ -17,9 +17,9 @@ Hej Mario
 Der er kommet en nye ordre og du skal lave disse pizzaer:
 
 Pizza: Nr. 3, Cacciatore: Tomat, Ost, Pepperoni, Oregano                                 Pris: 57
-Pizza: Nr. 3, Cacciatore: Tomat, Ost, Pepperoni, Oregano                                 Pris: 57
+Pizza: Nr. 4, Carbona: Tomat, Ost, Kødsovs, Spagetti, Pølser, Oregano                    Pris: 63
 
-Ordren blev modtaget: 2021-04-23T09:44:53.465596
+Ordren blev modtaget: 2021-04-23T12:40:59.141626400
 
 Råb til Alfonso, når ordren er lavet
 

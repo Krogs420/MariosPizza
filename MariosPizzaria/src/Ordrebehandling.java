@@ -52,6 +52,7 @@ public class Ordrebehandling {
   public ArrayList<Pizza> pizzaValg() {
 
     Scanner scan = new Scanner(System.in);
+    pizzaListe.clear(); //rydder ArrayListen hver gang en ny kunde bestiller, så pizzaListe kun indeholder én kundes ordre
 
     System.out.println("Hvor mange pizzaer vil du bestille?");
     while (!scan.hasNextInt()) {
@@ -68,7 +69,7 @@ public class Ordrebehandling {
         System.out.print("Indtast gyldigt valg, 1-30. Prøv igen: "); //udskriver den her 2 gange, hvorfor?
         scan.nextLine();
       }
-      int valg = scan.nextInt(); //problem med at tilføje valget her til pizzaListe
+      int valg = scan.nextInt();
 
       if (valg < 1 || valg > 30) {
         System.out.println("Indtast gyldigt valg, 1-30. Prøv igen: ");

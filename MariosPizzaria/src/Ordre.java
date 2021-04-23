@@ -14,7 +14,7 @@ public class Ordre {
     // Var det den vi kaldte fil? I så fald ændrer til fil.txt
     //FileWriter myWriter = new FileWriter("Friendlist.txt");
 
-    File displayOrdreMario = new File("src/Mariotext.txt");
+    File displayOrdreMario = new File("Mariotext.txt");
     PrintStream marioListe = new PrintStream(new FileOutputStream("src/Mariotext.txt", true));
     ArrayList mariosOrdrer = new ArrayList();
 
