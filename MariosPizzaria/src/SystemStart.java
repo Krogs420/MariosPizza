@@ -18,9 +18,8 @@ public class SystemStart {
 
         BrugerDialog brugerDialog = new BrugerDialog("Menu","Vælg et punkt: ", menuItems);
         Menu menu = new Menu();
-        Ordre ordre = new Ordre(1, new ArrayList<>());
+        Ordre ordre;
         Ordrebehandling ordreBehandling = new Ordrebehandling();
-
 
 
         int choice;
@@ -35,6 +34,7 @@ public class SystemStart {
                     menu.udskrivMenu();
                     break;
                 case 2:
+                    ordre = new Ordre(1, new ArrayList<>());
                     ordre.lavOrdre();
                     break;
                 case 3:
@@ -42,7 +42,8 @@ public class SystemStart {
                     if (svar == true)
                         System.out.println("Du har ingen ordrer.");
                     else
-                        System.out.println("Disse ordrer venter på dig: \n" + ordreListe.toString());
+                        System.out.println("Disse ordrer venter på dig: \n"
+                                + ordreListe.toString().replace("[", "").replace("]", ""));
                     break;
                 case 4:
                     System.out.println("Hvilke ordre vil du fjerne?"); //skal teste den her metode

@@ -16,6 +16,11 @@ public class Ordrebehandling {
   DateTimeFormatter tidsformat = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
    //System.out.println(localDateTime.format(tidsformat));
 
+  public int getSubTotal() {
+    return subTotal;
+  }
+
+
   // DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd-HH-yyyy HH:mm");
   //System.out.println(localDateTime.format(fmt));
 
@@ -38,10 +43,10 @@ public class Ordrebehandling {
     return salgsTidspunkt;
   }
 
-  public int totalPris() {
+  public int totalPris(ArrayList<Pizza> pizza ) {
     int subTotal = 0;
-    for (int i = 0; i < pizzaListe.size(); i++) {
-      subTotal += pizzaListe.get(i).getPris(); //subtotal = subtotal + getPris
+    for (int i = 0; i < pizza.size(); i++) {
+      subTotal += pizza.get(i).getPris(); //subtotal = subtotal + getPris
     }
     //this.subTotal = subTotal;
     return subTotal;
@@ -53,7 +58,7 @@ public class Ordrebehandling {
         "--------------------------------" +
         "\nKvittering\n" +
         "Antal pizzaer: " + pizzaListe.size() +
-        "\nPris: " + subTotal +
+        "\nPris: " + totalPris(pizzaListe) +
         "kr." +
         "\nSalgstidspunkt: " + salgsTidspunkt.format(tidsformat) +
         "\n--------------------------------";
@@ -95,8 +100,8 @@ public class Ordrebehandling {
 
     //pizzaListe udskrives til fil her
 
-    this.subTotal = totalPris();
+    //this.subTotal = totalPris();
     System.out.println(toString());
-    return null;
+    return pizzaListe;
   }
 }

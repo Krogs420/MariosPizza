@@ -51,7 +51,6 @@ public class Pizza {
         return "Pizza: " +
                 "Nr. " + nummer +
                 ", " + navn +
-                ": " + ingredienser +
-                "   Pris: " + pris;
+                ": " + ingredienser;
     }
 }

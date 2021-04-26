@@ -6,9 +6,8 @@ import java.util.Scanner;
 public class Ordre {
     static int ordreCount = 0;
 
-    int gaaende = 0;
-    int ringende = 0;
     int ordrerNummer = 0;
+    int pris = 0;
     private LocalDateTime leveringsTidspunkt;
     Scanner input = new Scanner(System.in);
     //ArrayList<Ordre> ordreListe = new ArrayList<>();
@@ -26,9 +25,10 @@ public class Ordre {
         this.ordrerNummer = ordrerNummer;
         this.valgtePizzaer = valgtePizzaer;
     }
-    public Ordre(int ordrerNummer, ArrayList<Pizza> valgtePizzaer, boolean gaaende) throws FileNotFoundException {
+    public Ordre(int ordrerNummer, ArrayList<Pizza> valgtePizzaer, boolean gaaende, int pris) throws FileNotFoundException {
         this.ordrerNummer = ordrerNummer;
         this.valgtePizzaer = valgtePizzaer;
+        this.pris = pris;
         if (gaaende = true) {
             LocalDateTime leveringsTidspunkt1 = LocalDateTime.now(); //kan ikke ændre dato/tid
             leveringsTidspunkt = leveringsTidspunkt1.plusMinutes(10); //derfor vi lægger 10 til her
@@ -51,14 +51,12 @@ public class Ordre {
 
         switch (choice) {
             case 1:
-                ringende++;
                 opretOrdre(true);
                 //myWriter.write(ringende);
                // myWriter.write(ordreListe.toString());
                // mywriter.close();
                 break;
             case 2:
-                gaaende++;
                 opretOrdre(false);
                // myWriter.write(gaaende);
                 // myWriter.write(ordreListe.toString());
@@ -70,7 +68,8 @@ public class Ordre {
     public void opretOrdre(boolean ringende) throws FileNotFoundException {
         ordreCount++;
         ArrayList<Pizza> gaaendePizzaer = ordrebehandling.pizzaValg();
-        Ordre ordre = new Ordre(ordreCount, gaaendePizzaer, ringende); //Ordre ordre2 = new Ordre(ordrerNummer, gaaendePizzaer);
+        pris = ordrebehandling.totalPris(gaaendePizzaer);
+        Ordre ordre = new Ordre(ordreCount, gaaendePizzaer, ringende, pris); //Ordre ordre2 = new Ordre(ordrerNummer, gaaendePizzaer);
         System.out.println("Ordrenummer: " + ordre.ordrerNummer);
 
         //ordreListe.add(ordre2);
@@ -98,11 +97,22 @@ public class Ordre {
         marioListe.println("\nRåb til Alfonso, når ordren er lavet\n\n");
         marioListe.println("======================================================================================================================");
 
+
     }
 
+    public int getPris() {
+        return pris;
+    }
 
-
-
+    @Override
+    public String toString() {
+        return "\nOrdrerNummer: " + ordrerNummer +
+                "\nAntal pizzaer " + valgtePizzaer.size() +
+                "\nValgte pizzaer " + valgtePizzaer.toString() +
+                "\nPris: " + pris +
+                "\nleveringsTidspunkt: " + leveringsTidspunkt +
+                "\n\n";
+    }
 }
 
 
