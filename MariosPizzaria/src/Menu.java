@@ -48,6 +48,6 @@ public class Menu {
 
 
   public Pizza getPizza(int pizzaNummer) {
-    return menuKort.get(pizzaNummer-1);
+    return menuKort.get(pizzaNummer - 1);
   }
 }

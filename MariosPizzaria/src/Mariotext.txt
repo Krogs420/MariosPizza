@@ -604,3 +604,69 @@ Råb til Alfonso, når ordren er lavet
 
 
 ======================================================================================================================
+Ordre NR: 0
+
+Hej Mario
+Der er kommet en nye ordre og du skal lave disse pizzaer:
+
+Pizza: Nr. 1, Vesuvio: Tomat, Ost, Origano, Skinke                                    
+
+Ordren blev modtaget: 2021-04-26T13:23:03.631622700
+
+Råb til Alfonso, når ordren er lavet
+
+
+======================================================================================================================
+Ordre NR: 0
+
+Hej Mario
+Der er kommet en nye ordre og du skal lave disse pizzaer:
+
+Pizza: Nr. 1, Vesuvio: Tomat, Ost, Origano, Skinke                                    
+
+Ordren blev modtaget: 2021-04-26T13:24:31.258853200
+
+Råb til Alfonso, når ordren er lavet
+
+
+======================================================================================================================
+Ordre NR: 0
+
+Hej Mario
+Der er kommet en nye ordre og du skal lave disse pizzaer:
+
+Pizza: Nr. 1, Vesuvio: Tomat, Ost, Origano, Skinke                                    
+
+Ordren blev modtaget: 2021-04-26T13:28:59.714364400
+
+Råb til Alfonso, når ordren er lavet
+
+
+======================================================================================================================
+Ordre NR: 0
+
+Hej Mario
+Der er kommet en nye ordre og du skal lave disse pizzaer:
+
+Pizza: Nr. 1, Vesuvio: Tomat, Ost, Origano, Skinke                                    
+
+Ordren blev modtaget: 2021-04-26T13:29:19.332610200
+
+Råb til Alfonso, når ordren er lavet
+
+
+======================================================================================================================
+Ordre NR: 0
+
+Hej Mario
+Der er kommet en nye ordre og du skal lave disse pizzaer:
+
+Pizza: Nr. 3, Cacciatore: Tomat, Ost, Pepperoni, Oregano                              
+Pizza: Nr. 4, Carbona: Tomat, Ost, Kødsovs, Spagetti, Pølser, Oregano                 
+
+Ordren blev modtaget: 2021-04-26T13:29:43.011025500
+
+Råb til Alfonso, når ordren er lavet
+
+
+======================================================================================================================

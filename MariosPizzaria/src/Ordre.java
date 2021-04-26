@@ -1,118 +1,107 @@
 import java.io.*;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Ordre {
-    static int ordreCount = 0;
+  static int ordreCount = 0;
 
-    int ordrerNummer = 0;
-    int pris = 0;
-    private LocalDateTime leveringsTidspunkt;
-    Scanner input = new Scanner(System.in);
-    //ArrayList<Ordre> ordreListe = new ArrayList<>();
+  int ordrerNummer = 0;
+  int pris = 0;
+  private LocalDateTime leveringsTidspunkt;
+  DateTimeFormatter tidsformat = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+  Scanner input = new Scanner(System.in);
 
-    Ordrebehandling ordrebehandling = new Ordrebehandling();
-    ArrayList<Pizza> valgtePizzaer = new ArrayList<>();
-    // Var det den vi kaldte fil? I så fald ændrer til fil.txt
-    //FileWriter myWriter = new FileWriter("Friendlist.txt");
+  Ordrebehandling ordrebehandling = new Ordrebehandling();
+  ArrayList<Pizza> valgtePizzaer = new ArrayList<>();
 
-    File displayOrdreMario = new File("Mariotext.txt");
-    PrintStream marioListe = new PrintStream(new FileOutputStream("src/Mariotext.txt", true));
-    ArrayList mariosOrdrer = new ArrayList();
+  File displayOrdreMario = new File("Mariotext.txt");
+  PrintStream marioListe = new PrintStream(new FileOutputStream("src/Mariotext.txt", true));
+  ArrayList mariosOrdrer = new ArrayList();
 
-    public Ordre(int ordrerNummer, ArrayList<Pizza> valgtePizzaer) throws FileNotFoundException {
-        this.ordrerNummer = ordrerNummer;
-        this.valgtePizzaer = valgtePizzaer;
-    }
-    public Ordre(int ordrerNummer, ArrayList<Pizza> valgtePizzaer, boolean gaaende, int pris) throws FileNotFoundException {
-        this.ordrerNummer = ordrerNummer;
-        this.valgtePizzaer = valgtePizzaer;
-        this.pris = pris;
-        if (gaaende = true) {
-            LocalDateTime leveringsTidspunkt1 = LocalDateTime.now(); //kan ikke ændre dato/tid
-            leveringsTidspunkt = leveringsTidspunkt1.plusMinutes(10); //derfor vi lægger 10 til her
-        }
-    }
+  public Ordre(int ordrerNummer, ArrayList<Pizza> valgtePizzaer) throws FileNotFoundException {
+    this.ordrerNummer = ordrerNummer;
+    this.valgtePizzaer = valgtePizzaer;
+  }
+
+  public Ordre(int ordrerNummer, ArrayList<Pizza> valgtePizzaer, boolean ringende, int pris) throws FileNotFoundException {
+    this.ordrerNummer = ordrerNummer;
+    this.valgtePizzaer = valgtePizzaer;
+    this.pris = pris;
+    leveringsTidspunkt = tilberedelsestid(ringende);
+  }
 
 
-    public void lavOrdre() throws FileNotFoundException {
+  public void lavOrdre() throws FileNotFoundException {
 
+    System.out.println("Ringer kunden ind eller kommer kunden ind fra gaden? Tryk 1 for ringende, 2 for gående");
 
-        System.out.println("Ringer kunden ind eller kommer kunden ind fra gaden? Tryk 1 for ringende, 2 for gående");
-
-        while (!input.hasNextInt()) {
-            System.out.print("Indtast gyldigt tal (1 eller 2): ");
-            input.nextLine();
-        }
-
-        int choice = input.nextInt();
-        input.nextLine(); //scanner bug
-
-        switch (choice) {
-            case 1:
-                opretOrdre(true);
-                //myWriter.write(ringende);
-               // myWriter.write(ordreListe.toString());
-               // mywriter.close();
-                break;
-            case 2:
-                opretOrdre(false);
-               // myWriter.write(gaaende);
-                // myWriter.write(ordreListe.toString());
-                //mywriter.close();
-                break;
-            }
+    while (!input.hasNextInt()) {
+      System.out.print("Indtast gyldigt tal (1 eller 2): ");
+      input.nextLine();
     }
 
-    public void opretOrdre(boolean ringende) throws FileNotFoundException {
-        ordreCount++;
-        ArrayList<Pizza> gaaendePizzaer = ordrebehandling.pizzaValg();
-        pris = ordrebehandling.totalPris(gaaendePizzaer);
-        Ordre ordre = new Ordre(ordreCount, gaaendePizzaer, ringende, pris); //Ordre ordre2 = new Ordre(ordrerNummer, gaaendePizzaer);
-        System.out.println("Ordrenummer: " + ordre.ordrerNummer);
+    int choice = input.nextInt();
+    input.nextLine(); //scanner bug
 
-        //ordreListe.add(ordre2);
-        OrdreListeMario();
-
-        SystemStart.ordreListe.add(ordre);
+    switch (choice) {
+      case 1:
+        opretOrdre(true);
+        break;
+      case 2:
+        opretOrdre(false);
+        break;
     }
+  }
 
-/*    public void sletOrdre(){
-        // er lidt i tvivl om det virker
-        ordreListe.equals(input.nextInt());
-    }*/
+  public void opretOrdre(boolean ringende) throws FileNotFoundException {
+    ordreCount++;
+    ArrayList<Pizza> gaaendePizzaer = ordrebehandling.pizzaValg(); //går ind i pizzaValg-metoden i ordrebehandlings-klassen
+    pris = ordrebehandling.totalPris(gaaendePizzaer);
+    Ordre ordre = new Ordre(ordreCount, gaaendePizzaer, ringende, pris);
+    System.out.println("Ordrenummer: " + ordre.ordrerNummer);
 
-    public void OrdreListeMario() throws FileNotFoundException {
+    OrdreListeMario();
 
-        marioListe.println("Ordre NR: " + (ordrerNummer -1));
+    SystemStart.ordreListe.add(ordre);
+  }
 
-        marioListe.println("\nHej Mario\nDer er kommet en nye ordre og du skal lave disse pizzaer:\n");
-        for (int i = 0; i < ordrebehandling.getPizzaListe().size(); i++) {
-            marioListe.println(ordrebehandling.getPizzaListe().get(i).toString().replace("[", "").replace("]", ""));
 
-        }
-        marioListe.println("\nOrdren blev modtaget: " + ordrebehandling.getSalgsTidspunkt());
+  public void OrdreListeMario() throws FileNotFoundException {
 
-        marioListe.println("\nRåb til Alfonso, når ordren er lavet\n\n");
-        marioListe.println("======================================================================================================================");
+    marioListe.println("Ordre NR: " + (ordrerNummer - 1));
 
+    marioListe.println("\nHej Mario\nDer er kommet en nye ordre og du skal lave disse pizzaer:\n");
+    for (int i = 0; i < ordrebehandling.getPizzaListe().size(); i++) {
+      marioListe.println(ordrebehandling.getPizzaListe().get(i).toString().replace("[", "").replace("]", ""));
 
     }
+    marioListe.println("\nOrdren blev modtaget: " + ordrebehandling.getSalgsTidspunkt());
+    marioListe.println("\nRåb til Alfonso, når ordren er lavet\n\n");
+    marioListe.println("======================================================================================================================");
+  }
 
-    public int getPris() {
-        return pris;
-    }
+  public LocalDateTime tilberedelsestid(boolean ringende) {
+    LocalDateTime temp = LocalDateTime.now();
 
-    @Override
-    public String toString() {
-        return "\nOrdrerNummer: " + ordrerNummer +
-                "\nAntal pizzaer " + valgtePizzaer.size() +
-                "\nValgte pizzaer " + valgtePizzaer.toString() +
-                "\nPris: " + pris +
-                "\nleveringsTidspunkt: " + leveringsTidspunkt +
-                "\n\n";
+    if (ringende) {
+      return temp.plusMinutes(50);
+    } else {
+      return temp.plusMinutes(10);
     }
+  }
+
+
+  @Override
+  public String toString() {
+    return "\nOrdrenummer: " + ordrerNummer +
+        "\nAntal pizzaer " + valgtePizzaer.size() +
+        "\nValgte pizzaer " + valgtePizzaer.toString() +
+        "\nPris: " + pris +
+        "\nLeveringstidspunkt: " + leveringsTidspunkt.format(tidsformat) +
+        "\n\n";
+  }
 }
 
 

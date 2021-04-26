@@ -14,41 +14,20 @@ public class Ordrebehandling {
   private ArrayList<Pizza> pizzaListe = new ArrayList<>();
 
   DateTimeFormatter tidsformat = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
-   //System.out.println(localDateTime.format(tidsformat));
-
-  public int getSubTotal() {
-    return subTotal;
-  }
-
-
-  // DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd-HH-yyyy HH:mm");
-  //System.out.println(localDateTime.format(fmt));
-
-  public void init() { //vi bruger ikke den her metode, slet den?
-    menu.udskrivMenu();
-  }
-
-  Pizza pizza = new Pizza(1, 50, "Hawaii", "ananas mm.");
 
   public ArrayList<Pizza> getPizzaListe() {
     return pizzaListe;
-  }
-
-  public void lavPizza(int nummer, int pris, String navn, String ingredienser) {
-    Pizza pizza = new Pizza(nummer, pris, navn, ingredienser);
-    pizzaListe.add(pizza);
   }
 
   public LocalDateTime getSalgsTidspunkt() {
     return salgsTidspunkt;
   }
 
-  public int totalPris(ArrayList<Pizza> pizza ) {
+  public int totalPris(ArrayList<Pizza> pizza) {
     int subTotal = 0;
     for (int i = 0; i < pizza.size(); i++) {
       subTotal += pizza.get(i).getPris(); //subtotal = subtotal + getPris
     }
-    //this.subTotal = subTotal;
     return subTotal;
   }
 
@@ -79,9 +58,8 @@ public class Ordrebehandling {
 
     if (antalPizza < 1) {
       System.out.println("Indtast gyldigt valg, prøv igen: \n");
-    pizzaValg();
+      pizzaValg();
     }
-
 
 
     for (int i = 0; i < antalPizza; i++) {
@@ -102,11 +80,8 @@ public class Ordrebehandling {
         Pizza pizza = menu.getPizza(valg);
         pizzaListe.add(pizza);
       }
-      }
+    }
 
-    //pizzaListe udskrives til fil her
-
-    //this.subTotal = totalPris();
     System.out.println(toString());
     return pizzaListe;
   }
