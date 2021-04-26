@@ -46,7 +46,7 @@ public class SystemStart {
                                 + ordreListe.toString().replace("[", "").replace("]", ""));
                     break;
                 case 4:
-                    System.out.println("Hvilke ordre vil du fjerne?"); //skal teste den her metode
+                    System.out.println("Hvilke ordre vil du fjerne?");
                     int sletOrdre = input.nextInt();
                     input.nextLine();
                     boolean ordreFindes = false;
