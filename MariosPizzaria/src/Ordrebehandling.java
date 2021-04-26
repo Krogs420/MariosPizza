@@ -72,6 +72,12 @@ public class Ordrebehandling {
     int antalPizza = scan.nextInt();
     scan.nextLine();
 
+    if (antalPizza < 1) {
+      System.out.println("Indtast gyldigt valg, prøv igen: \n");
+    pizzaValg();
+    }
+
+
 
     for (int i = 0; i < antalPizza; i++) {
       System.out.println("\nAlfonso indtaster ordre her: ");

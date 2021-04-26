@@ -45,7 +45,7 @@ public class SystemStart {
                         System.out.println("Disse ordrer venter på dig: \n" + ordreListe.toString());
                     break;
                 case 4:
-                    System.out.println("Hvilke ordre vil du fjerne?"); //skal teste den her metode
+                    System.out.println("Hvilke ordre vil du fjerne?");
                     int sletOrdre = input.nextInt();
                     input.nextLine();
                     boolean ordreFindes = false;

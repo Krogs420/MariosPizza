@@ -26,13 +26,10 @@ public class Ordre {
         this.ordrerNummer = ordrerNummer;
         this.valgtePizzaer = valgtePizzaer;
     }
-    public Ordre(int ordrerNummer, ArrayList<Pizza> valgtePizzaer, boolean gaaende) throws FileNotFoundException {
+    public Ordre(int ordrerNummer, ArrayList<Pizza> valgtePizzaer, boolean ringende) throws FileNotFoundException {
         this.ordrerNummer = ordrerNummer;
         this.valgtePizzaer = valgtePizzaer;
-        if (gaaende = true) {
-            LocalDateTime leveringsTidspunkt1 = LocalDateTime.now(); //kan ikke ændre dato/tid
-            leveringsTidspunkt = leveringsTidspunkt1.plusMinutes(10); //derfor vi lægger 10 til her
-        }
+        leveringsTidspunkt = tilberedelsesTid(ringende);
     }
 
 
@@ -75,7 +72,7 @@ public class Ordre {
 
         //ordreListe.add(ordre2);
         OrdreListeMario();
-
+        System.out.println(ordre.leveringsTidspunkt);
         SystemStart.ordreListe.add(ordre);
     }
 
@@ -94,15 +91,23 @@ public class Ordre {
 
         }
         marioListe.println("\nOrdren blev modtaget: " + ordrebehandling.getSalgsTidspunkt());
+        //marioListe.println("Den bliver hentet " + tilberedelsesTid());
 
         marioListe.println("\nRåb til Alfonso, når ordren er lavet\n\n");
         marioListe.println("======================================================================================================================");
 
     }
 
+    public LocalDateTime tilberedelsesTid(boolean ringende) {
+        LocalDateTime temp = LocalDateTime.now(); //kan ikke ændre dato/tid
 
+        if (ringende) {
+            return temp.plusMinutes(50); //derfor vi lægger 10 til her
+        } else {
+            return temp.plusMinutes(10);
+        }
 
-
+    }
 }
 
 
