@@ -18,7 +18,7 @@ public class SystemStart {
     BrugerDialog brugerDialog = new BrugerDialog("Menu", "Vælg et punkt: ", menuItems);
     Menu menu = new Menu();
     Ordre ordre;
-    Ordrebehandling ordreBehandling = new Ordrebehandling(); //HHHHHHHMMMMMMMMMM
+    Ordrebehandling ordreBehandling = new Ordrebehandling();
 
 
     int choice;
